@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../hooks/useUserContext';
 
 export const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	// Consumir el valor del contexto
+	const { usuarioActual } = useUserContext();
+	console.log(usuarioActual);
 	useEffect(() => {
 		// Selecciona el botón del menú móvil y el panel lateral
 		const asideEl = document.querySelector('.aside');
@@ -26,13 +30,13 @@ export const Header = () => {
 					<button aria-label="Notificaciones">
 						<div className="material-symbols-outlined">notifications</div>
 					</button>
-					<a aria-label="Perfil de usuario" className="user-profile" href="./cuentas.html">
+					<Link to={'/cuentas'} aria-label="Perfil de usuario" className="user-profile">
 						<div className="material-symbols-outlined user-image">account_circle</div>
 						<div className="user-options">
-							<span>Usuario nuevo</span>
+							<span>{usuarioActual ?? 'Usuario Nuevo'}</span>
 							<div className="material-symbols-outlined expand">expand_more</div>
 						</div>
-					</a>
+					</Link>
 				</div>
 				<div className="nav-mobile">
 					<button
