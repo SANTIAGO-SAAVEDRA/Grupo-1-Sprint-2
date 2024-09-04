@@ -4,87 +4,8 @@ import './simulador.css';
 
 // Simulador de préstamos en React
 export const Simulador = () => {
-  const [loanType, setLoanType] = useState('');
-  const [interestRate, setInterestRate] = useState('');
-  const [amount, setAmount] = useState('');
-  const [term, setTerm] = useState('');
-  const [monthlyPayment, setMonthlyPayment] = useState('');
-  const [totalPayment, setTotalPayment] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-
-  // Calcula el préstamo
-  const calculateLoan = () => {
-    if (amount && interestRate && term) {
-      const monthlyInterest = interestRate / 100 / 12;
-      const numberOfPayments = term;
-
-      const monthlyPayment = (amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -numberOfPayments));
-      const totalPayment = monthlyPayment * numberOfPayments;
-
-      setMonthlyPayment(`Cuota Mensual: $${monthlyPayment.toFixed(2)}`);
-      setTotalPayment(`Pago Total: $${totalPayment.toFixed(2)}`);
-    } else {
-      setError('Por favor, completa todos los campos del formulario.');
-    }
-  };
-
-  // Valida el formulario
-  const validateForm = () => {
-    if (amount <= 0 || term <= 0) {
-      setError('El monto y el plazo deben ser mayores que cero.');
-      return false;
-    }
-    return true;
-  };
-
-  // Calcula el préstamo con validación
-  const calculateLoanWithValidation = () => {
-    if (validateForm()) {
-      calculateLoan();
-    }
-  };
-
-  // Muestra mensajes de éxito
-  const showSuccess = (message) => {
-    setSuccess(message);
-    setTimeout(() => setSuccess(''), 3000);
-  };
-
-  // Muestra mensajes de error
-  const showError = (message) => {
-    setError(message);
-    setTimeout(() => setError(''), 3000);
-  };
-
-  // Envía la solicitud de préstamo
-  const submitLoan = () => {
-    const usuarios = recuperarUsuariosDeLocalStorage();
-    const usuarioActual = localStorage.getItem('usuarioActual');
-
-    if (window.confirm('¿Estás seguro de que quieres solicitar el préstamo?')) {
-      usuarios[usuarioActual.toLowerCase()].saldo += parseFloat(amount);
-      usuarios[usuarioActual.toLowerCase()].historialPrestamos.push({
-        fecha: new Date().toISOString().slice(0, 10),
-        monto: parseFloat(amount),
-        tipo: loanType,
-        tasaInteres: parseFloat(interestRate),
-        plazo: parseInt(term)
-      });
-
-      actualizarUsuariosEnLocalStorage(usuarios);
-      showSuccess('Préstamo realizado con éxito.');
-      formRef.current.reset();
-    } else {
-      showError('El préstamo no ha podido procesarse correctamente.');
-    }
-  };
-
-  // Maneja el envío del formulario
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    calculateLoanWithValidation();
-  };
+	return <div className="simulador"></div>;
+};
 
   return (
     <div>
@@ -173,17 +94,4 @@ export const Simulador = () => {
 
     </div>
   );
-};
-
-// Funciones de manejo de usuarios (deberían ser implementadas o importadas)
-const recuperarUsuariosDeLocalStorage = () => {
-  // Implementar la lógica para recuperar usuarios
-  return JSON.parse(localStorage.getItem('usuarios')) || {};
-};
-
-const actualizarUsuariosEnLocalStorage = (usuarios) => {
-  // Implementar la lógica para actualizar usuarios en localStorage
-  localStorage.setItem('usuarios', JSON.stringify(usuarios));
-};
-
 
