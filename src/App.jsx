@@ -3,6 +3,7 @@ import { Aside } from './components/Aside';
 import { Header } from './components/Header';
 import { Home } from './components/Home';
 import { Spinner } from './components/Spinner';
+import { Simulador } from './components/Simulador'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 
@@ -18,7 +19,7 @@ function App() {
 			{isLoading && <Spinner />}
 			<UserProvider>
 				<Header />
-				<Aside />
+				<Simulador />
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />
