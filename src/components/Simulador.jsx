@@ -88,19 +88,14 @@ const Prestamos = () => {
 
   return (
     <div>
-      <header className="header">
-        {/* Header content */}
-      </header>
-      <aside className="aside">
-        {/* Aside content */}
-      </aside>
-      <main className="main-content">
-        <section className="prestamos">
+
           <h1>Préstamos Disponibles</h1>
           <p>Encuentra la mejor opción de financiamiento para tus necesidades.</p>
+
           <div className="loan-options">
             {/* Loan options content */}
           </div>
+
           <div className="loan-simulator">
             <h2>Solicitar un Préstamo</h2>
             <form id="simulator-form" ref={formRef} onSubmit={handleSubmit}>
@@ -113,6 +108,7 @@ const Prestamos = () => {
                   readOnly
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="amount">Monto:</label>
                 <input
@@ -124,6 +120,7 @@ const Prestamos = () => {
                   required
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="interest-rate">Tasa de Interés (%):</label>
                 <input
@@ -134,6 +131,7 @@ const Prestamos = () => {
                   readOnly
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="term">Plazo (meses):</label>
                 <input
@@ -145,6 +143,7 @@ const Prestamos = () => {
                   required
                 />
               </div>
+
               <div className="form-buttons">
                 <button
                   className="request-loan"
@@ -161,6 +160,7 @@ const Prestamos = () => {
                   Calcular <span className="material-symbols-outlined icon">calculate</span>
                 </button>
               </div>
+              
             </form>
             {error && <p className="error">{error}</p>}
             {success && <p className="exito">{success}</p>}
@@ -169,11 +169,8 @@ const Prestamos = () => {
               <p id="total-payment">{totalPayment}</p>
             </div>
           </div>
-        </section>
-      </main>
-      <footer>
-        {/* Footer content */}
-      </footer>
+
+
     </div>
   );
 };
