@@ -19,14 +19,13 @@ function App() {
 			{isLoading && <Spinner />}
 			<UserProvider>
 				<Header />
-				<Simulador />
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />
 						<Route path="/transferencias" element={<div>TODO</div>} />
 						<Route path="/pagos" element={<div>TODO</div>} />
 						<Route path="/solicitar-prestamo" element={<div>TODO</div>} />
-						<Route path="/simular-prestamo" element={<div>TODO</div>} />
+						<Route path="/simular-prestamo" element={<Simulador />} />
 						<Route path="/conversor" element={<div>TODO</div>} />
 						<Route path="/cuentas" element={<div>TODO</div>} />
 					</Routes>

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './simulador.css';
 
 // Simulador de préstamos en React
@@ -11,7 +12,6 @@ const Prestamos = () => {
   const [totalPayment, setTotalPayment] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const formRef = useRef(null);
 
   // Calcula el préstamo
   const calculateLoan = () => {
@@ -160,7 +160,7 @@ const Prestamos = () => {
                   Calcular <span className="material-symbols-outlined icon">calculate</span>
                 </button>
               </div>
-              
+
             </form>
             {error && <p className="error">{error}</p>}
             {success && <p className="exito">{success}</p>}
