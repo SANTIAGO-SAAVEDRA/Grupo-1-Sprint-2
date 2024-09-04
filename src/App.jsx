@@ -30,6 +30,7 @@ function App() {
 						<Route path="/cuentas" element={<div>TODO</div>} />
 					</Routes>
 				</main>
+				<Simulador />
 			</UserProvider>
 		</Router>
 	);
