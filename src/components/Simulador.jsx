@@ -186,4 +186,5 @@ const actualizarUsuariosEnLocalStorage = (usuarios) => {
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
 };
 
-export default Prestamos;
+export { Simulador };
+
