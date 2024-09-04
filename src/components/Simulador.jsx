@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './simulador.css';
 
 // Simulador de préstamos en React
-const Prestamos = () => {
+export const Simulador = () => {
   const [loanType, setLoanType] = useState('');
   const [interestRate, setInterestRate] = useState('');
   const [amount, setAmount] = useState('');
@@ -186,5 +186,4 @@ const actualizarUsuariosEnLocalStorage = (usuarios) => {
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
 };
 
-export { Simulador };
 
