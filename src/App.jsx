@@ -19,7 +19,6 @@ function App() {
 			{isLoading && <Spinner />}
 			<UserProvider>
 				<Header />
-				<Simulador />
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />
