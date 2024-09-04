@@ -3,7 +3,6 @@ import { Aside } from './components/Aside';
 import { Header } from './components/Header';
 import { Home } from './components/Home';
 import { Spinner } from './components/Spinner';
-import { Simulador } from './components/Simulador';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 
@@ -25,7 +24,7 @@ function App() {
 						<Route path="/transferencias" element={<div>TODO</div>} />
 						<Route path="/pagos" element={<div>TODO</div>} />
 						<Route path="/solicitar-prestamo" element={<div>TODO</div>} />
-						<Route path="/simular-prestamo" element={<Simulador />} />
+						<Route path="/simular-prestamo" element={<div>TODO</div>} />
 						<Route path="/conversor" element={<div>TODO</div>} />
 						<Route path="/cuentas" element={<div>TODO</div>} />
 					</Routes>
