@@ -18,6 +18,7 @@ function App() {
 			{isLoading && <Spinner />}
 			<UserProvider>
 				<Header />
+				<Aside />
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />
@@ -29,7 +30,6 @@ function App() {
 						<Route path="/cuentas" element={<div>TODO</div>} />
 					</Routes>
 				</main>
-				<Simulador />
 			</UserProvider>
 		</Router>
 	);
