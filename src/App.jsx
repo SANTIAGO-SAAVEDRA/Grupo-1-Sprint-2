@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 import { Spinner } from './components/Spinner';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
+import { Footer } from './components/Footer';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,7 @@ function App() {
 						<Route path="/cuentas" element={<div>TODO</div>} />
 					</Routes>
 				</main>
+				<Footer />
 			</UserProvider>
 		</Router>
 	);
