@@ -30,7 +30,7 @@ export const Aside = () => {
 					</Link>
 				</li>
 				<li>
-					<Link to="/simulador-prestamo" data-form="prestamos">
+					<Link to="/Simulador" >
 						<span className="material-symbols-outlined  icon">calculate</span> Simular Préstamo
 					</Link>
 				</li>
