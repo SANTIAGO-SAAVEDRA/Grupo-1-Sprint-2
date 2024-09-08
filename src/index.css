@@ -65,6 +65,10 @@ h6 {
 	color: #0239d6; /* Azul oscuro */
 }
 
+input:read-only {
+	cursor: help;
+}
+
 /* !MAIN-CONTENT */
 .spinner {
 	position: fixed;

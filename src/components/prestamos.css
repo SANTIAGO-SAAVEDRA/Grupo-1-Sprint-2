@@ -1,5 +1,5 @@
 .prestamos {
-	padding: 40px;
+	padding: 64px;
 	border: 1px solid #e0e0e0;
 	border-radius: 10px;
 	background-color: #ffffff;
@@ -107,6 +107,7 @@
 	transition: background-color 0.3s;
 	font-size: 16px;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .request-loan {

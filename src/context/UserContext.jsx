@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'; // Importar PropTypes
 import usuarioDemo from '../utils/usuarioDemo.json';
 
@@ -34,13 +34,19 @@ export const UserProvider = ({ children }) => {
 	const [usuarioActual, setUsuarioActual] = useState(useUsuarioActual());
 	const [usuarios, setUsuarios] = useState(useUsuarios());
 
+	const updateUsuarios = (usuariosActualizado) => {
+		if (!usuariosActualizado) return;
+		setUsuarios(usuariosActualizado);
+		localStorage.setItem('usuarios', JSON.stringify(usuariosActualizado));
+	};
 	return (
 		<UserContext.Provider
 			value={{
 				usuarioActual,
 				usuarios,
 				setUsuarioActual,
-				setUsuarios
+				setUsuarios,
+				updateUsuarios
 			}}>
 			{children}
 		</UserContext.Provider>

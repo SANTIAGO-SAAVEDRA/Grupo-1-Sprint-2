@@ -1,3 +1,9 @@
 export const Spinner = () => {
-	return <div className="spinner"></div>;
+	return (
+		<div
+			onClick={(e) => {
+				e.target.classList.add('spinner-hidden');
+			}}
+			className="spinner"></div>
+	);
 };

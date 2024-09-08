@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import { Footer } from './components/Footer';
 import { Pagos } from './components/Pagos';
+import { Transferencias } from './components/Transferencias';
+import { SolicitarPrestamo } from './components/SolicitarPrestamo';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -27,9 +29,9 @@ function App() {
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />
-						<Route path="/transferencias" element={<div>TODO</div>} />
+						<Route path="/transferencias" element={<Transferencias />} />
 						<Route path="/pagos" element={<Pagos />} />
-						<Route path="/solicitar-prestamo" element={<div>TODO</div>} />
+						<Route path="/solicitar-prestamo" element={<SolicitarPrestamo />} />
 						<Route path="/Simulador" element={<Simulador />} />
 						<Route path="/conversor" element={<div>TODO</div>} />
 						<Route path="/cuentas" element={<div>TODO</div>} />

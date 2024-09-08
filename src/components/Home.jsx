@@ -21,8 +21,8 @@ export const Home = () => {
 				<h2>Historial de Transferencias</h2>
 				<ul id="transfer-history">
 					{usuarios[usuarioActual.toLowerCase()].historialTransferencias.map(
-						({ fecha, esIngreso, emisor, receptor, monto }) => (
-							<li key={fecha} className={`transfer ${esIngreso ? 'ingreso' : 'egreso'}`}>
+						({ esIngreso, emisor, receptor, monto, id }) => (
+							<li key={id} className={`transfer ${esIngreso ? 'ingreso' : 'egreso'}`}>
 								<span>
 									{esIngreso ? 'Emisor' : 'Receptor'}: {esIngreso ? emisor : receptor}
 								</span>
@@ -35,8 +35,8 @@ export const Home = () => {
 			<div className="user-dashboard__section">
 				<h2>Pagos Realizados</h2>
 				<ul id="payment-history">
-					{usuarios[usuarioActual.toLowerCase()].historialPagos.map(({ numero, monto, fecha }) => (
-						<li key={fecha} className="payment">
+					{usuarios[usuarioActual.toLowerCase()].historialPagos.map(({ numero, monto, fecha, id }) => (
+						<li key={id} className="payment">
 							<span>N° {numero}</span>
 							<span className="amount">${monto}</span>
 						</li>
@@ -46,16 +46,14 @@ export const Home = () => {
 			<div className="user-dashboard__section">
 				<h2>Préstamos Solicitados</h2>
 				<ul id="loan-history">
-					{usuarios[usuarioActual.toLowerCase()].historialPrestamos.map(
-						({ fecha, tipo, tasaInteres, plazo, monto }) => (
-							<li key={fecha} className="loan">
-								<span>
-									{tipo} - {tasaInteres}% - {plazo} meses
-								</span>
-								<span className="amount">${monto}</span>
-							</li>
-						)
-					)}
+					{usuarios[usuarioActual.toLowerCase()].historialPrestamos.map(({ tipo, tasaInteres, plazo, monto, id }) => (
+						<li key={id} className="loan">
+							<span>
+								{tipo} - {tasaInteres}% - {plazo} meses
+							</span>
+							<span className="amount">${monto}</span>
+						</li>
+					))}
 				</ul>
 			</div>
 		</section>
