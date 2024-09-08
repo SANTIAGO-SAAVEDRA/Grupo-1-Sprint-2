@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
-import './header.css';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../hooks/useUserContext';
+import PropTypes from 'prop-types';
+import './header.css';
 
-export const Header = () => {
-	const [isOpen, setIsOpen] = useState(false);
+export const Header = ({ menuMobileOpen, setMenuMobileOpen }) => {
 	// Consumir el valor del contexto
 	const { usuarioActual } = useUserContext();
-	console.log(usuarioActual);
 	useEffect(() => {
 		// Selecciona el botón del menú móvil y el panel lateral
 		const asideEl = document.querySelector('.aside');
 		asideEl.classList.toggle('visible'); // Alterna la visibilidad del panel lateral
-	}, [isOpen]);
+	}, [menuMobileOpen]);
 
 	return (
 		<header className="header">
@@ -40,8 +39,8 @@ export const Header = () => {
 				</div>
 				<div className="nav-mobile">
 					<button
-						onClick={() => setIsOpen((isOpen) => !isOpen)}
-						className={`nav-mobile__button${isOpen ? ' open' : ''}`}>
+						onClick={() => setMenuMobileOpen(() => !menuMobileOpen)}
+						className={`nav-mobile__button${menuMobileOpen ? ' open' : ''}`}>
 						<span className="material-symbols-outlined open-icon">menu</span>
 						<span className="material-symbols-outlined close-icon">close</span>
 					</button>
@@ -49,4 +48,9 @@ export const Header = () => {
 			</div>
 		</header>
 	);
+};
+
+Header.propTypes = {
+	menuMobileOpen: PropTypes.bool,
+	setMenuMobileOpen: PropTypes.func
 };

@@ -16,7 +16,7 @@ export const Pagos = () => {
 	const [mensajeFeedback, setMensajeFeedback] = useState('');
 	const [mostrarMensajeExito, setMostrarMensajeExito] = useState(false);
 	const [mostrarMensajeError, setMostrarMensajeError] = useState(false);
-	const { usuarioActual, usuarios, setUsuarios } = useUserContext();
+	const { usuarioActual, usuarios } = useUserContext();
 	const mostrarFeedback = (tipo, message) => {
 		setMensajeFeedback(message);
 		if (tipo == 'exito') {
@@ -48,7 +48,6 @@ export const Pagos = () => {
 				metodo: metodoPago,
 				fecha: new Date().toISOString().slice(0, 10) // Formato YYYY-MM-DD
 			});
-			console.log(usuariosActualizado);
 			mostrarFeedback('exito', 'Pago realizado con éxito');
 			return;
 		} else {

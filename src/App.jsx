@@ -10,6 +10,8 @@ import { Pagos } from './components/Pagos';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
+	const [menuMobileOpen, setMenuMobileOpen] = useState(false);
+
 	useEffect(() => {
 		window.addEventListener('load', () => {
 			setIsLoading(false);
@@ -19,8 +21,8 @@ function App() {
 		<Router>
 			{isLoading && <Spinner />}
 			<UserProvider>
-				<Header />
-				<Aside />
+				<Header menuMobileOpen={menuMobileOpen} setMenuMobileOpen={setMenuMobileOpen} />
+				<Aside setMenuMobileOpen={setMenuMobileOpen} />
 				<main className="main-content" id="main-content">
 					<Routes>
 						<Route path="*" element={<Home />} />

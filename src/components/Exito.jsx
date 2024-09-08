@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'; // Importar PropTypes
+import PropTypes from 'prop-types';
 
 export const Exito = ({ message }) => {
 	return <p className="exito">{message}</p>;
