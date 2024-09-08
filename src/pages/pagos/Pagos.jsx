@@ -1,37 +1,31 @@
 import { useState } from 'react';
 import './pagos.css';
-import { useUserContext } from '../hooks/useUserContext';
-import { Exito } from './Exito';
-import { Error } from './Error';
+import { useUserContext } from '../../hooks/useUserContext';
+import { Exito, Error } from '../../components';
 
 function blockInvalidChar(e) {
 	['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 	e.key;
 }
 
-export const Transferencias = () => {
-	const [nombreUsuario, setNombreUsuario] = useState('');
+export const Pagos = () => {
+	const [numeroFactura, setNumeroFactura] = useState('');
 	const [monto, setMonto] = useState('');
-	const [motivoPago, setMotivoPago] = useState(0);
+	const [metodoPago, setMetodoPago] = useState(0);
 	const [mensajeFeedback, setMensajeFeedback] = useState('');
 	const [mostrarMensajeExito, setMostrarMensajeExito] = useState(false);
 	const [mostrarMensajeError, setMostrarMensajeError] = useState(false);
 	const { usuarioActual, usuarios, updateUsuarios } = useUserContext();
 	const mostrarFeedback = (tipo, message) => {
 		setMensajeFeedback(message);
-		if (tipo == 'exito') {
-			setMostrarMensajeExito(true);
-			setTimeout(() => {
-				setMostrarMensajeExito(false);
-			}, 3000);
-		}
+		const esExito = tipo === 'exito';
+		setMostrarMensajeExito(esExito);
+		setMostrarMensajeError(!esExito);
 
-		if (tipo == 'error') {
-			setMostrarMensajeError(true);
-			setTimeout(() => {
-				setMostrarMensajeError(false);
-			}, 3000);
-		}
+		setTimeout(() => {
+			setMostrarMensajeExito(false);
+			setMostrarMensajeError(false);
+		}, 3000);
 	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -43,28 +37,15 @@ export const Transferencias = () => {
 			mostrarFeedback('error', 'El monto a transferir debe ser mayor a 0.');
 			return;
 		}
-		if (nombreUsuario !== '' && monto > 0 && motivoPago) {
+		if (numeroFactura !== '' && monto > 0 && metodoPago) {
 			const usuariosActualizado = usuarios;
 			const id = Math.random().toString(16).slice(2);
-			// actualizar usuario actual
 			usuariosActualizado[usuarioActual.toLowerCase()].saldo -= monto;
-			usuariosActualizado[usuarioActual.toLowerCase()].historialTransferencias.push({
+			usuariosActualizado[usuarioActual.toLowerCase()].historialPagos.push({
+				numero: numeroFactura,
 				monto,
-				motivo: motivoPago,
-				emisor: usuarioActual,
-				esIngreso: false,
-				receptor: nombreUsuario,
+				metodo: metodoPago,
 				fecha: new Date().toISOString().slice(0, 10), // Formato YYYY-MM-DD
-				id
-			});
-			// actualizar usuario receptor
-			usuariosActualizado[nombreUsuario.toLowerCase()]?.historialTransferencias.push({
-				monto,
-				motivo: motivoPago,
-				emisor: usuarioActual,
-				receptor: nombreUsuario,
-				esIngreso: true,
-				fecha: new Date().toISOString().slice(0, 10),
 				id
 			});
 			updateUsuarios(usuariosActualizado);
@@ -77,22 +58,22 @@ export const Transferencias = () => {
 
 	return (
 		<section className="pagos">
-			<h2>Formulario de transferencias</h2>
+			<h2>Pago de Factura</h2>
 			<form onSubmit={handleSubmit} action="/procesar-pago" method="post">
 				<div className="pagos__form-group">
-					<label htmlFor="nombre-usuario">Nombre de usuario:</label>
+					<label htmlFor="numero-factura">Número de Factura:</label>
 					<input
 						type="text"
-						id="nombre-usuario"
-						name="nombre-usuario"
+						id="numero-factura"
+						name="numero-factura"
 						placeholder="Ingrese el número de factura"
-						value={nombreUsuario}
-						onChange={(e) => setNombreUsuario(e.target.value)}
+						value={numeroFactura}
+						onChange={(e) => setNumeroFactura(e.target.value)}
 						required
 					/>
 				</div>
 				<div className="pagos__form-group">
-					<label htmlFor="monto">Monto a Transferir:</label>
+					<label htmlFor="monto">Monto a Pagar:</label>
 					<input
 						value={monto}
 						onKeyDown={blockInvalidChar}
@@ -108,22 +89,22 @@ export const Transferencias = () => {
 					/>
 				</div>
 				<div className="pagos__form-group">
-					<label htmlFor="motivo-pago">Motivo:</label>
+					<label htmlFor="metodo-pago">Método de Pago:</label>
 					<select
-						value={motivoPago}
-						onChange={(e) => setMotivoPago(() => e.target.value)}
-						id="motivo-pago"
-						name="motivo-pago"
+						value={metodoPago}
+						onChange={(e) => setMetodoPago(() => e.target.value)}
+						id="metodo-pago"
+						name="metodo-pago"
 						required>
 						<option value="">Seleccione un método</option>
-						<option value="tarjeta">Tarjeta de Débito</option>
-						<option value="tarjeta">Tarjeta de Crédito</option>
+						<option value="tarjeta-debito">Tarjeta de Débito</option>
+						<option value="tarjeta-credito">Tarjeta de Crédito</option>
 						<option value="transferencia">Transferencia Bancaria</option>
 						<option value="paypal">PayPal</option>
 					</select>
 				</div>
 				<div className="pagos__form-group">
-					<button type="submit">Realizar Transferencia</button>
+					<button type="submit">Realizar Pago</button>
 				</div>
 			</form>
 			{mostrarMensajeExito && <Exito message={mensajeFeedback} />}

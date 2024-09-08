@@ -1,0 +1,132 @@
+.cuentas {
+}
+.cuentas__form-container {
+	padding: 64px;
+	border: 1px solid #e0e0e0;
+	background-color: #ffffff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.cuentas__toggle {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.cuentas__toggle button:not(.cuentas__toggle-logout) {
+	background-color: #555;
+}
+.cuentas__toggle button {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: none;
+	font-size: 20px;
+	color: #fff;
+	padding: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.cuentas__toggle button.active {
+	background-color: #000;
+}
+.cuentas__toggle button:first-child {
+	border-top-right-radius: 0;
+}
+
+.cuentas__toggle button:last-child {
+	border-top-left-radius: 0;
+}
+
+.cuentas__toggle-logout {
+	background-color: #e03131;
+}
+.cuentas h2 {
+	text-align: center;
+	color: #333333;
+	margin-bottom: 20px;
+}
+
+.cuentas__form-group {
+	margin-bottom: 20px;
+}
+
+.cuentas__form-group label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: bold;
+	color: #333333;
+}
+
+.cuentas__form-group input,
+.cuentas__form-group select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.cuentas__form-group input::placeholder {
+	color: #999999;
+}
+
+.cuentas__form-group button {
+	width: 100%;
+	background-color: #0283e9;
+	color: #ffffff;
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.cuentas__form-group button:hover {
+	background-color: #0239d6; /* Azul oscuro para el hover del botón */
+}
+
+.cuentas__form-buttons {
+	width: 100%;
+}
+
+.cuentas__form-buttons button {
+	width: 100%;
+	background-color: #0283e9; /* Azul medio para el botón */
+	color: #ffffff; /* Blanco para el texto del botón */
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.75px;
+}
+
+/* css mensaje error */
+.error {
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #f00;
+	color: #fff;
+}
+
+@media (max-width: 600px) {
+	.cuentas__form-container {
+		padding: 16px;
+	}
+
+	.cuentas__form-group input,
+	.cuentas__form-group select,
+	.cuentas__form-group button {
+		font-size: 14px;
+	}
+}

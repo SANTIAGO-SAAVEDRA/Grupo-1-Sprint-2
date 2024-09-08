@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useUserContext } from '../hooks/useUserContext';
+import { useUserContext } from '../../hooks/useUserContext';
 import PropTypes from 'prop-types';
 import './header.css';
 

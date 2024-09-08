@@ -1,14 +1,35 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './aside.css';
 
 export const Aside = ({ setMenuMobileOpen }) => {
+	let { pathname } = useLocation();
+
+	// Luego usa useNavigate en lugar de useHistory
+	const navigate = useNavigate();
+	const handleBack = () => {
+		setMenuMobileOpen(false);
+		navigate(-1); // Navega hacia atrás
+	};
+
 	return (
 		<aside className="aside">
 			<ul>
-				<Link onClick={() => setMenuMobileOpen(false)} className="register-button" id="account-action" to="/cuentas">
-					Ingreso <span className="plus-sign">+</span>
-				</Link>
+				{pathname === '/cuentas' ? (
+					<button
+						onClick={() => {
+							handleBack();
+							setMenuMobileOpen(false);
+						}}
+						className="register-button"
+						id="account-action">
+						<span className="plus-sign">⬅</span> Volver
+					</button>
+				) : (
+					<Link to="/cuentas" className="register-button" id="account-action" onClick={() => setMenuMobileOpen(false)}>
+						Ingreso
+					</Link>
+				)}
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/">
 						<span className="material-symbols-outlined icon "> home</span> Inicio{' '}
