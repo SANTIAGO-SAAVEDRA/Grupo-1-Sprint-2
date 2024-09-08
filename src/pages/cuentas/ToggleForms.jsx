@@ -10,6 +10,7 @@ export const ToggleForms = () => {
 	const handleLogout = () => {
 		setEsUsuarioNuevo(true);
 		setUsuarioActual('Demo');
+		setInicioDeSesionSeleccionado(false);
 		localStorage.setItem('usuarioActual', 'Demo');
 	};
 	return (

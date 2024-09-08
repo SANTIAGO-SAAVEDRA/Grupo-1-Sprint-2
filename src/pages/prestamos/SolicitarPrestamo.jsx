@@ -102,117 +102,115 @@ export const SolicitarPrestamo = () => {
 		}
 	};
 	return (
-		<main className="main-content">
-			<section className="prestamos">
-				<h1>Préstamos Disponibles</h1>
-				<p>Encuentra la mejor opción de financiamiento para tus necesidades.</p>
-				<br />
+		<section className="prestamos">
+			<h1>Préstamos Disponibles</h1>
+			<p>Encuentra la mejor opción de financiamiento para tus necesidades.</p>
+			<br />
 
-				<div className="loan-options">
-					<div className="loan-card">
-						<h3>Préstamo Personal</h3>
-						<ul>
-							<li>Tasa de interés: 12% anual</li>
-							<li>Monto máximo: $100.000</li>
-							<li>Plazo: Hasta 24 meses</li>
-						</ul>
-						<button onClick={() => openSimulator('Préstamo Personal', 12)}>Simular</button>
-					</div>
-
-					<div className="loan-card">
-						<h3>Préstamo Hipotecario</h3>
-						<ul>
-							<li>Tasa de interés: 8% anual</li>
-							<li>Monto máximo: $500.000</li>
-							<li>Plazo: Hasta 48 meses</li>
-						</ul>
-						<button onClick={() => openSimulator('Préstamo Hipotecario', 8)}>Simular</button>
-					</div>
-
-					<div className="loan-card">
-						<h3>Préstamo Prendario</h3>
-						<ul>
-							<li>Tasa de interés: 9% anual</li>
-							<li>Monto máximo: $50.000</li>
-							<li>Plazo: Hasta 12 meses</li>
-						</ul>
-						<button onClick={() => openSimulator('Préstamo Automotriz', 9)}>Simular</button>
-					</div>
+			<div className="loan-options">
+				<div className="loan-card">
+					<h3>Préstamo Personal</h3>
+					<ul>
+						<li>Tasa de interés: 12% anual</li>
+						<li>Monto máximo: $100.000</li>
+						<li>Plazo: Hasta 24 meses</li>
+					</ul>
+					<button onClick={() => openSimulator('Préstamo Personal', 12)}>Simular</button>
 				</div>
 
-				<div className="loan-simulator">
-					<h2>Formulario de solicitud de prestamo</h2>
-					<form id="simulator-form" onSubmit={(e) => e.preventDefault()}>
-						<div className="form-group">
-							<label htmlFor="loan-type">Tipo de Préstamo:</label>
-							<input
-								onClick={() => {
-									alert('Para rellenar este campo debes seleccionar una de las opciones de prestamos.');
-								}}
-								type="text"
-								id="loan-type"
-								name="loan-type"
-								value={loanType}
-								readOnly
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="amount">Monto:</label>
-							<input
-								type="number"
-								id="amount"
-								name="amount"
-								placeholder="Ingrese el monto del préstamo"
-								value={amount}
-								onKeyDown={blockInvalidChar}
-								onChange={(e) => {
-									setAmount(() => e.target.value);
-								}}
-								required
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="interest-rate">Tasa de Interés (%):</label>
-							<input
-								onClick={() => {
-									alert('Para rellenar este campo debes seleccionar una de las opciones de prestamos.');
-								}}
-								type="number"
-								id="interest-rate"
-								name="interest-rate"
-								value={interestRate}
-								readOnly
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="term">Plazo (meses):</label>
-							<input
-								type="number"
-								id="term"
-								name="term"
-								placeholder="Ingrese el plazo en meses"
-								value={term}
-								onChange={(e) => setTerm(e.target.value)}
-								required
-							/>
-						</div>
-						<div className="form-buttons">
-							<button className="request-loan" type="button" onClick={() => submitLoan()}>
-								Solicitar
-							</button>
-							<button className="calculate-loan" type="button" onClick={() => calculateLoan()}>
-								Calcular <span className="material-symbols-outlined  icon">calculate</span>
-							</button>
-						</div>
-					</form>
-					{mostrarMensajeExito && <Exito message={mensajeFeedback} />}
-					{mostrarMensajeError && <Error message={mensajeFeedback} />}
-					<div id="results">
-						<p id="monthly-payment">{monthlyPayment}</p>
-						<p id="total-payment">{totalPayment}</p>
-					</div>
+				<div className="loan-card">
+					<h3>Préstamo Hipotecario</h3>
+					<ul>
+						<li>Tasa de interés: 8% anual</li>
+						<li>Monto máximo: $500.000</li>
+						<li>Plazo: Hasta 48 meses</li>
+					</ul>
+					<button onClick={() => openSimulator('Préstamo Hipotecario', 8)}>Simular</button>
 				</div>
-			</section>
-		</main>
+
+				<div className="loan-card">
+					<h3>Préstamo Prendario</h3>
+					<ul>
+						<li>Tasa de interés: 9% anual</li>
+						<li>Monto máximo: $50.000</li>
+						<li>Plazo: Hasta 12 meses</li>
+					</ul>
+					<button onClick={() => openSimulator('Préstamo Automotriz', 9)}>Simular</button>
+				</div>
+			</div>
+
+			<div className="loan-simulator">
+				<h2>Formulario de solicitud de prestamo</h2>
+				<form id="simulator-form" onSubmit={(e) => e.preventDefault()}>
+					<div className="form-group">
+						<label htmlFor="loan-type">Tipo de Préstamo:</label>
+						<input
+							onClick={() => {
+								alert('Para rellenar este campo debes seleccionar una de las opciones de prestamos.');
+							}}
+							type="text"
+							id="loan-type"
+							name="loan-type"
+							value={loanType}
+							readOnly
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="amount">Monto:</label>
+						<input
+							type="number"
+							id="amount"
+							name="amount"
+							placeholder="Ingrese el monto del préstamo"
+							value={amount}
+							onKeyDown={blockInvalidChar}
+							onChange={(e) => {
+								setAmount(() => e.target.value);
+							}}
+							required
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="interest-rate">Tasa de Interés (%):</label>
+						<input
+							onClick={() => {
+								alert('Para rellenar este campo debes seleccionar una de las opciones de prestamos.');
+							}}
+							type="number"
+							id="interest-rate"
+							name="interest-rate"
+							value={interestRate}
+							readOnly
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="term">Plazo (meses):</label>
+						<input
+							type="number"
+							id="term"
+							name="term"
+							placeholder="Ingrese el plazo en meses"
+							value={term}
+							onChange={(e) => setTerm(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="form-buttons">
+						<button className="request-loan" type="button" onClick={() => submitLoan()}>
+							Solicitar
+						</button>
+						<button className="calculate-loan" type="button" onClick={() => calculateLoan()}>
+							Calcular <span className="material-symbols-outlined  icon">calculate</span>
+						</button>
+					</div>
+				</form>
+				{mostrarMensajeExito && <Exito message={mensajeFeedback} />}
+				{mostrarMensajeError && <Error message={mensajeFeedback} />}
+				<div id="results">
+					<p id="monthly-payment">{monthlyPayment}</p>
+					<p id="total-payment">{totalPayment}</p>
+				</div>
+			</div>
+		</section>
 	);
 };

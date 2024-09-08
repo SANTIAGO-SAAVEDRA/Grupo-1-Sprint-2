@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Exito, Error } from '../../components';
@@ -21,7 +20,6 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 	// estado contexto
 	const { usuarios, setUsuarioActual, usuarioActual, updateUsuarios } = useUserContext();
 	// para navegar a otra URL
-	const navigate = useNavigate();
 
 	const mostrarFeedback = (tipo, message) => {
 		setMensajeFeedback(message);
@@ -74,7 +72,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 			updateUsuarios(usuariosActualizado);
 			setUsuarioActual(nombreUsuario);
 			localStorage.setItem('usuarioActual', nombreUsuario);
-			window.location.href = 'index.html';
+			window.location.href = '/';
 		}
 	};
 
@@ -82,7 +80,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 		if (validarCampos(true)) {
 			setUsuarioActual(usuarioActual);
 			localStorage.setItem('usuarioActual', nombreUsuario);
-			window.location.href = 'index.html';
+			window.location.href = '/';
 		}
 	};
 	return (
