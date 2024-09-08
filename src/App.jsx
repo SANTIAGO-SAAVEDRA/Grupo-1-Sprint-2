@@ -12,6 +12,7 @@ import { Transferencias } from './components/Transferencias';
 import { SolicitarPrestamo } from './components/SolicitarPrestamo';
 import { Terminos } from './components/Terminos';
 import { Privacidad } from './components/Privacidad';
+import { Conversor } from './components/Conversor';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,7 @@ function App() {
 						<Route path="/pagos" element={<Pagos />} />
 						<Route path="/solicitar-prestamo" element={<SolicitarPrestamo />} />
 						<Route path="/simulador-prestamo" element={<Simulador />} />
-						<Route path="/conversor" element={<div>TODO</div>} />
+						<Route path="/conversor" element={<Conversor />} />
 						<Route path="/cuentas" element={<div>TODO</div>} />
 						<Route path="/terminos-y-condiciones" element={<Terminos />} />
 						<Route path="/politica-de-privacidad" element={<Privacidad />} />
