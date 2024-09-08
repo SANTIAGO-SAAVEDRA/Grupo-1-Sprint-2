@@ -10,6 +10,8 @@ import { Footer } from './components/Footer';
 import { Pagos } from './components/Pagos';
 import { Transferencias } from './components/Transferencias';
 import { SolicitarPrestamo } from './components/SolicitarPrestamo';
+import { Terminos } from './components/Terminos';
+import { Privacidad } from './components/Privacidad';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -32,9 +34,11 @@ function App() {
 						<Route path="/transferencias" element={<Transferencias />} />
 						<Route path="/pagos" element={<Pagos />} />
 						<Route path="/solicitar-prestamo" element={<SolicitarPrestamo />} />
-						<Route path="/Simulador" element={<Simulador />} />
+						<Route path="/simulador-prestamo" element={<Simulador />} />
 						<Route path="/conversor" element={<div>TODO</div>} />
 						<Route path="/cuentas" element={<div>TODO</div>} />
+						<Route path="/terminos-y-condiciones" element={<Terminos />} />
+						<Route path="/politica-de-privacidad" element={<Privacidad />} />
 					</Routes>
 				</main>
 				<Footer />
