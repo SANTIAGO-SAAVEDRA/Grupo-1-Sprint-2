@@ -1,4 +1,4 @@
-.user-dashboard {
+.userDashboard {
 	display: flex;
 	align-items: stretch;
 	flex-direction: column;
@@ -7,12 +7,12 @@
 	border-radius: 10px;
 }
 
-.user-dashboard ul {
+.userDashboard ul {
 	list-style-type: none;
 	padding: 0;
 }
 
-.user-dashboard__section {
+.userDashboardSection {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
@@ -22,41 +22,41 @@
 	border-radius: 10px;
 }
 
-.user-dashboard__section h2 {
+.userDashboardSection h2 {
 	color: #333;
 	font-size: 20px;
 }
 
-.user-balance {
+.userBalance {
 	font-size: 24px;
 	font-weight: 600;
 	color: #007bff;
 	background-color: #afecfa;
 }
 
-.user-dashboard__section ul {
+.userDashboardSection ul {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 }
 
-.user-balance,
-.user-dashboard__section li {
+.userBalance,
+.userDashboardSection li {
 	display: flex;
 	justify-content: space-between;
 	padding: 16px;
 	border-radius: 10px;
 }
 
-.user-dashboard__section li .amount {
+.userDashboardSection li .amount {
 	font-weight: bold;
 }
 
-.transfer.ingreso {
+.transfer:global(.ingreso) {
 	background-color: #8ce99a;
 }
 
-.transfer:not(.ingreso) {
+.transfer:not(:global(.ingreso)) {
 	background-color: #ff8787;
 }
 

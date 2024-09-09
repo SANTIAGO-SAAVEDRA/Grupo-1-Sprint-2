@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './aside.css';
+import styles from './aside.module.css';
 
 export const Aside = ({ setMenuMobileOpen }) => {
 	let { pathname } = useLocation();
@@ -13,7 +13,7 @@ export const Aside = ({ setMenuMobileOpen }) => {
 	};
 
 	return (
-		<aside className="aside">
+		<aside className={styles.aside} id="aside">
 			<ul>
 				{pathname === '/cuentas' ? (
 					<button
@@ -21,43 +21,47 @@ export const Aside = ({ setMenuMobileOpen }) => {
 							handleBack();
 							setMenuMobileOpen(false);
 						}}
-						className="register-button"
+						className={styles.registerButton}
 						id="account-action">
 						<span className="plus-sign">⬅</span> Volver
 					</button>
 				) : (
-					<Link to="/cuentas" className="register-button" id="account-action" onClick={() => setMenuMobileOpen(false)}>
+					<Link
+						to="/cuentas"
+						className={styles.registerButton}
+						id="account-action"
+						onClick={() => setMenuMobileOpen(false)}>
 						Ingreso
 					</Link>
 				)}
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/">
-						<span className="material-symbols-outlined icon "> home</span> Inicio{' '}
+						<span className="material-symbols-outlined icon"> home</span> Inicio{' '}
 					</Link>
 				</li>
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/transferencias">
-						<span className="material-symbols-outlined  icon ">account_balance</span> Transferencias
+						<span className="material-symbols-outlined icon">account_balance</span> Transferencias
 					</Link>
 				</li>
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/pagos">
-						<span className="material-symbols-outlined  icon">order_approve </span>Pagos de Facturas
+						<span className="material-symbols-outlined icon">order_approve </span>Pagos de Facturas
 					</Link>
 				</li>
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/solicitar-prestamo">
-						<span className="material-symbols-outlined  icon">paid</span> Solicitar Préstamo{' '}
+						<span className="material-symbols-outlined icon">paid</span> Solicitar Préstamo{' '}
 					</Link>
 				</li>
 				<li>
-					<Link onClick={() => setMenuMobileOpen(false)} to="/Simulador">
-						<span className="material-symbols-outlined  icon">calculate</span> Simular Préstamo
+					<Link onClick={() => setMenuMobileOpen(false)} to="/simular-prestamo">
+						<span className="material-symbols-outlined icon">calculate</span> Simular Préstamo
 					</Link>
 				</li>
 				<li>
 					<Link onClick={() => setMenuMobileOpen(false)} to="/conversor">
-						<span className="material-symbols-outlined  icon">currency_exchange</span> Conversor{' '}
+						<span className="material-symbols-outlined icon">currency_exchange</span> Conversor{' '}
 					</Link>
 				</li>
 			</ul>

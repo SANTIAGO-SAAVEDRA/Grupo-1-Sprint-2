@@ -1,3 +1,13 @@
+/* conversor.module.css */
+@keyframes loading {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(1turn);
+	}
+}
+
 .converter {
 	padding: 64px;
 	border: 1px solid #e0e0e0;
@@ -11,32 +21,37 @@
 	margin-bottom: 20px;
 }
 
-.conversion-form {
+.converter h2 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.conversionForm {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
 }
 
-.input-group {
+.inputGroup {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 }
 
-.input-group label {
+.inputGroup label {
 	font-weight: bold;
 	font-size: 14px;
 }
 
-.input-group input,
-.input-group select {
+.inputGroup input,
+.inputGroup select {
 	padding: 8px;
 	font-size: 16px;
 	border-radius: 4px;
 	border: 1px solid #ccc;
 }
 
-.convert-button {
+.convertButton {
 	width: 100%;
 	padding: 12px;
 	background-color: #1a73e8;
@@ -48,23 +63,18 @@
 	margin-top: 20px;
 }
 
-.convert-button:hover {
+.convertButton:hover {
 	background-color: #155cb0;
 }
 
-.converter h2 {
-	text-align: center;
-	margin-top: 20px;
-}
-
-.converter__spinner {
+.converterSpinner {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: opacity 0.3s, visibility 0.3s;
 }
 
-.converter__spinner::after {
+.converterSpinner::after {
 	content: '';
 	width: 48px;
 	height: 48px;
@@ -73,6 +83,7 @@
 	border-radius: 50%;
 	animation: loading 0.75s ease infinite;
 }
+
 @media screen and (max-width: 800px) {
 	.converter {
 		padding: 48px;

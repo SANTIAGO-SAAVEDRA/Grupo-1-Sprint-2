@@ -1,5 +1,5 @@
 /*! HEADER */
-header {
+.header {
 	display: grid;
 	grid-row: 1;
 	grid-column: 1 / -1;
@@ -12,7 +12,7 @@ header {
 	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-header img {
+.header img {
 	height: 32px;
 }
 
@@ -23,7 +23,7 @@ header img {
 }
 
 /*! BOTONES */
-.search-bar {
+.searchBar {
 	display: flex;
 	align-items: center;
 	flex-grow: 1;
@@ -32,7 +32,7 @@ header img {
 	overflow: hidden;
 }
 
-.search-bar input[type='text'] {
+.searchBar input[type='text'] {
 	width: 100%;
 	padding: 8px 12px;
 	border: none;
@@ -40,7 +40,7 @@ header img {
 	font-size: 16px;
 }
 
-.search-button {
+.searchButton {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -54,18 +54,18 @@ header img {
 	font-size: 12px;
 }
 
-.search-button span {
+.searchButton span {
 	font-size: 16px;
 }
 
 /*! ICONOS DEL HEADER */
-.header-icons {
+.headerIcons {
 	display: flex;
 	align-items: center;
 	gap: 16px;
 }
 
-.header-icons button {
+.headerIcons button {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -74,33 +74,33 @@ header img {
 	font-size: 16px;
 }
 
-.header-icons .material-symbols-outlined {
+.headerIcons :global(.material-symbols-outlined) {
 	font-size: 32px;
 }
 
-.header-icons .user-profile {
+.headerIcons .userProfile {
 	display: flex;
 	gap: 8px;
 	text-decoration: none;
 }
 
-.header-icons .user-options {
+.headerIcons .userOptions {
 	display: flex;
 	align-items: center;
 }
 
-.header-icons .expand {
+.headerIcons .expand {
 	font-size: 20px;
 }
 
-.header-icons button:hover .material-symbols-outlined {
+.headerIcons button:hover .material-symbols-outlined {
 	color: #007bff;
 }
-.nav-mobile {
+.navMobile {
 	display: none;
 	z-index: 250;
 }
-.nav-mobile__button {
+.navMobileButton {
 	width: 48px;
 	height: 48px;
 	position: relative;
@@ -111,27 +111,27 @@ header img {
 	background: #01cdfb;
 }
 
-.nav-mobile__button span {
+.navMobileButton span {
 	color: #fff;
 	font-size: 20px;
 }
-.nav-mobile__button .open-icon,
-.nav-mobile__button .close-icon {
+.navMobileButton .openIcon,
+.navMobileButton .closeIcon {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 1;
 }
-.nav-mobile__button .close-icon {
+.navMobileButton .closeIcon {
 	opacity: 0;
 }
 
-.nav-mobile__button.open .close-icon {
+.navMobileButton:global(.open) .closeIcon {
 	opacity: 1;
 }
 
-.nav-mobile__button.open .open-icon {
+.navMobileButton:global(.open) .openIcon {
 	opacity: 0;
 }
 /*! FIN HEADER */
@@ -146,49 +146,49 @@ header img {
 		gap: 8px;
 	}
 	/*! BOTONES */
-	.search-bar {
+	.searchBar {
 		border: initial;
 		justify-content: end;
 	}
 
-	.search-bar input {
+	.searchBar input {
 		display: none;
 	}
 
-	.search-button {
+	.searchButton {
 		margin: 0;
 		padding: 0;
 		background: none;
 	}
 
-	.search-button span {
+	.searchButton span {
 		font-size: 24px;
 		color: #000;
 	}
 	/*! ICONOS DEL HEADER */
-	.header-icons {
+	.headerIcons {
 		gap: 4px;
 	}
-	.header-icons button .material-symbols-outlined {
+	.headerIcons button :global(.material-symbols-outlined) {
 		font-size: 24px;
 	}
-	.header-icons button span,
-	.header-icons .expand,
-	.header-icons .user-options {
+	.headerIcons button span,
+	.headerIcons .expand,
+	.headerIcons .userOptions {
 		display: none;
 	}
 	/*! NAVEGACIÓN PARA TELÉFONOS */
-	.nav-mobile {
+	.navMobile {
 		display: block;
 	}
 }
 @media screen and (max-width: 600px) {
-	header {
+	.header {
 		grid-template-columns: max-content 1fr;
 	}
 }
 @media screen and (max-width: 400px) {
-	header img {
+	.header img {
 		height: 24px;
 	}
 }

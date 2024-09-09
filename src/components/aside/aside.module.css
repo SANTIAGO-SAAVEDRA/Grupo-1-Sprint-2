@@ -1,4 +1,4 @@
-aside {
+.aside {
 	grid-row: 2;
 	grid-column: 1;
 	background-color: #fbfbfb;
@@ -7,21 +7,21 @@ aside {
 	overflow-y: auto;
 }
 
-aside h2 {
+.aside h2 {
 	margin-top: 0;
 }
 
-aside ul {
+.aside ul {
 	list-style: none;
 	padding: 0;
 }
 
-aside ul li {
+.aside ul li {
 	margin: 15px 0;
 }
 
-aside ul li a:link:not(.register-button),
-aside ul li a:visited:not(.register-button) {
+.aside ul li a:link:not(.registerButton),
+.aside ul li a:visited:not(.registerButton) {
 	text-decoration: none;
 	color: #333333;
 	font-weight: bold;
@@ -30,18 +30,12 @@ aside ul li a:visited:not(.register-button) {
 	border-radius: 4px;
 }
 
-aside ul li a:hover {
+.aside ul li a:hover {
 	background-color: #afecfa;
 }
 
-/*! EDITAR ICONOS MENO*/
-.icon {
-	margin-right: 8px;
-	vertical-align: middle;
-}
-
 /*! EDITAR BOTON REGISTRAR*/
-.register-button {
+.registerButton {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -62,12 +56,12 @@ aside ul li a:hover {
 	font-size: 20px;
 }
 
-.register-button:hover {
+.registerButton:hover {
 	background-color: #01cdfb;
 }
 
 @media screen and (max-width: 800px) {
-	aside {
+	.aside {
 		position: fixed;
 		top: 80px;
 		width: 100%;
@@ -78,17 +72,17 @@ aside ul li a:hover {
 		background-color: #333333;
 	}
 
-	aside ul {
+	.aside ul {
 		display: flex;
 		flex-direction: column;
 	}
 
-	aside .register-button {
+	.aside .registerButton {
 		justify-content: center;
 	}
 
-	aside ul li a:link:not(.register-button),
-	aside ul li a:visited:not(.register-button) {
+	.aside ul li a:link:not(.registerButton),
+	.aside ul li a:visited:not(.registerButton) {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -97,20 +91,20 @@ aside ul li a:hover {
 		font-size: 20px;
 	}
 
-	aside .register-button {
+	.aside .registerButton {
 		font-size: 24px;
 		padding: 16px;
 	}
 
-	aside ul {
+	.aside ul {
 		gap: 16px;
 	}
 
-	aside ul li {
+	.aside ul li {
 		margin: 0;
 	}
 
-	.aside.visible {
+	.aside:global(.visible) {
 		opacity: 1;
 		visibility: visible;
 		pointer-events: initial;

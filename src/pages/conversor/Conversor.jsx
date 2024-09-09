@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './conversor.css';
+import styles from './conversor.module.css';
 
 const options = [
 	{ value: 'ARS', name: 'Peso argentino - ARS' },
@@ -40,10 +40,10 @@ export const Conversor = () => {
 	};
 
 	return (
-		<div className="converter">
+		<div className={styles.converter}>
 			<h1>Conversor de Divisas</h1>
-			<div className="conversion-form">
-				<div className="input-group">
+			<div className={styles.conversionForm}>
+				<div className={styles.inputGroup}>
 					<label htmlFor="cantidad">Importe:</label>
 					<input
 						type="number"
@@ -54,7 +54,7 @@ export const Conversor = () => {
 						onChange={(e) => setMonto(e.target.value)}
 					/>
 				</div>
-				<div className="input-group">
+				<div className={styles.inputGroup}>
 					<label htmlFor="moneda-base">De:</label>
 					<select
 						id="moneda-base"
@@ -68,7 +68,7 @@ export const Conversor = () => {
 						))}
 					</select>
 				</div>
-				<div className="input-group">
+				<div className={styles.inputGroup}>
 					<label htmlFor="moneda-destino">A:</label>
 					<select
 						id="moneda-destino"
@@ -84,11 +84,11 @@ export const Conversor = () => {
 						)}
 					</select>
 				</div>
-				<button className="convert-button" onClick={convert}>
+				<button className={styles.convertButton} onClick={convert}>
 					Convertir
 				</button>
 				{isLoading ? (
-					<div className="converter__spinner"></div>
+					<div className={styles.converterSpinner}></div>
 				) : (
 					resultadoConversion && <h2>Resultado: ${resultadoConversion}</h2>
 				)}

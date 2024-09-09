@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './transferencias.css';
+import styles from './transferencias.module.css';
 import { useUserContext } from '../../hooks/useUserContext';
 import { Exito, Error } from '../../components';
 
@@ -74,10 +74,10 @@ export const Transferencias = () => {
 	};
 
 	return (
-		<section className="pagos">
+		<section className={styles.transferencias}>
 			<h2>Formulario de transferencias</h2>
 			<form onSubmit={handleSubmit} action="/procesar-pago" method="post">
-				<div className="pagos__form-group">
+				<div className={styles.transferenciasFormGroup}>
 					<label htmlFor="nombre-usuario">Nombre de usuario:</label>
 					<input
 						type="text"
@@ -89,7 +89,7 @@ export const Transferencias = () => {
 						required
 					/>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.transferenciasFormGroup}>
 					<label htmlFor="monto">Monto a Transferir:</label>
 					<input
 						value={monto}
@@ -105,7 +105,7 @@ export const Transferencias = () => {
 						placeholder="Ingrese el monto"
 					/>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.transferenciasFormGroup}>
 					<label htmlFor="motivo-pago">Motivo:</label>
 					<select
 						value={motivoPago}
@@ -120,7 +120,7 @@ export const Transferencias = () => {
 						<option value="paypal">PayPal</option>
 					</select>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.transferenciasFormGroup}>
 					<button type="submit">Realizar Transferencia</button>
 				</div>
 			</form>

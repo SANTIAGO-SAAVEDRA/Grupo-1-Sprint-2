@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './prestamos.css';
+import styles from './prestamos.module.css';
 import { useUserContext } from '../../hooks/useUserContext';
 import { Exito, Error } from '../../components';
 
@@ -102,13 +102,13 @@ export const SolicitarPrestamo = () => {
 		}
 	};
 	return (
-		<section className="prestamos">
+		<section className={styles.prestamos}>
 			<h1>Préstamos Disponibles</h1>
 			<p>Encuentra la mejor opción de financiamiento para tus necesidades.</p>
 			<br />
 
-			<div className="loan-options">
-				<div className="loan-card">
+			<div className={styles.loanOptions}>
+				<div className={styles.loanCard}>
 					<h3>Préstamo Personal</h3>
 					<ul>
 						<li>Tasa de interés: 12% anual</li>
@@ -118,7 +118,7 @@ export const SolicitarPrestamo = () => {
 					<button onClick={() => openSimulator('Préstamo Personal', 12)}>Simular</button>
 				</div>
 
-				<div className="loan-card">
+				<div className={styles.loanCard}>
 					<h3>Préstamo Hipotecario</h3>
 					<ul>
 						<li>Tasa de interés: 8% anual</li>
@@ -128,7 +128,7 @@ export const SolicitarPrestamo = () => {
 					<button onClick={() => openSimulator('Préstamo Hipotecario', 8)}>Simular</button>
 				</div>
 
-				<div className="loan-card">
+				<div className={styles.loanCard}>
 					<h3>Préstamo Prendario</h3>
 					<ul>
 						<li>Tasa de interés: 9% anual</li>
@@ -139,10 +139,10 @@ export const SolicitarPrestamo = () => {
 				</div>
 			</div>
 
-			<div className="loan-simulator">
+			<div className={styles.loanSimulator}>
 				<h2>Formulario de solicitud de prestamo</h2>
 				<form id="simulator-form" onSubmit={(e) => e.preventDefault()}>
-					<div className="form-group">
+					<div className={styles.formGroup}>
 						<label htmlFor="loan-type">Tipo de Préstamo:</label>
 						<input
 							onClick={() => {
@@ -155,7 +155,7 @@ export const SolicitarPrestamo = () => {
 							readOnly
 						/>
 					</div>
-					<div className="form-group">
+					<div className={styles.formGroup}>
 						<label htmlFor="amount">Monto:</label>
 						<input
 							type="number"
@@ -170,7 +170,7 @@ export const SolicitarPrestamo = () => {
 							required
 						/>
 					</div>
-					<div className="form-group">
+					<div className={styles.formGroup}>
 						<label htmlFor="interest-rate">Tasa de Interés (%):</label>
 						<input
 							onClick={() => {
@@ -183,7 +183,7 @@ export const SolicitarPrestamo = () => {
 							readOnly
 						/>
 					</div>
-					<div className="form-group">
+					<div className={styles.formGroup}>
 						<label htmlFor="term">Plazo (meses):</label>
 						<input
 							type="number"
@@ -195,18 +195,18 @@ export const SolicitarPrestamo = () => {
 							required
 						/>
 					</div>
-					<div className="form-buttons">
-						<button className="request-loan" type="button" onClick={() => submitLoan()}>
+					<div className={styles.formButtons}>
+						<button className={styles.requestLoan} type="button" onClick={() => submitLoan()}>
 							Solicitar
 						</button>
-						<button className="calculate-loan" type="button" onClick={() => calculateLoan()}>
+						<button className={styles.calculateLoan} type="button" onClick={() => calculateLoan()}>
 							Calcular <span className="material-symbols-outlined  icon">calculate</span>
 						</button>
 					</div>
 				</form>
 				{mostrarMensajeExito && <Exito message={mensajeFeedback} />}
 				{mostrarMensajeError && <Error message={mensajeFeedback} />}
-				<div id="results">
+				<div className={styles.results} id="results">
 					<p id="monthly-payment">{monthlyPayment}</p>
 					<p id="total-payment">{totalPayment}</p>
 				</div>

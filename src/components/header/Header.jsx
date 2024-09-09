@@ -2,47 +2,47 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
 import PropTypes from 'prop-types';
-import './header.css';
+import styles from './header.module.css';
 
 export const Header = ({ menuMobileOpen, setMenuMobileOpen }) => {
 	// Consumir el valor del contexto
 	const { usuarioActual } = useUserContext();
 	useEffect(() => {
 		// Selecciona el botón del menú móvil y el panel lateral
-		const asideEl = document.querySelector('.aside');
+		const asideEl = document.querySelector('#aside');
 		asideEl.classList.toggle('visible'); // Alterna la visibilidad del panel lateral
 	}, [menuMobileOpen]);
 
 	return (
-		<header className="header">
+		<header className={styles.header}>
 			<Link to="/" aria-label="Volver al inicio">
 				<img src="/imagenes/banking-logo.png" alt="Banking Logo" />
 			</Link>
-			<div className="navigation">
-				<div className="search-bar">
+			<div className={styles.navigation}>
+				<div className={styles.searchBar}>
 					<input type="text" placeholder="Buscar" aria-label="Buscar" />
-					<button className="search-button" aria-label="Buscar">
+					<button className={styles.searchButton} aria-label="Buscar">
 						<span className="material-symbols-outlined">search</span>
 					</button>
 				</div>
-				<div className="header-icons">
+				<div className={styles.headerIcons}>
 					<button aria-label="Notificaciones">
 						<div className="material-symbols-outlined">notifications</div>
 					</button>
-					<Link to={'/cuentas'} aria-label="Perfil de usuario" className="user-profile">
-						<div className="material-symbols-outlined user-image">account_circle</div>
-						<div className="user-options">
+					<Link to={'/cuentas'} aria-label="Perfil de usuario" className={styles.userProfile}>
+						<div className={`material-symbols-outlined ${styles.userImage}`}>account_circle</div>
+						<div className={styles.userOptions}>
 							<span>{usuarioActual ?? 'Usuario Nuevo'}</span>
-							<div className="material-symbols-outlined expand">expand_more</div>
+							<div className={`material-symbols-outlined ${styles.expand}`}>expand_more</div>
 						</div>
 					</Link>
 				</div>
-				<div className="nav-mobile">
+				<div className={styles.navMobile}>
 					<button
 						onClick={() => setMenuMobileOpen(() => !menuMobileOpen)}
-						className={`nav-mobile__button${menuMobileOpen ? ' open' : ''}`}>
-						<span className="material-symbols-outlined open-icon">menu</span>
-						<span className="material-symbols-outlined close-icon">close</span>
+						className={`${styles.navMobileButton} ${menuMobileOpen ? ' open' : ''}`}>
+						<span className={`material-symbols-outlined ${styles.openIcon}`}>menu</span>
+						<span className={`material-symbols-outlined ${styles.closeIcon}`}>close</span>
 					</button>
 				</div>
 			</div>

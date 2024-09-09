@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './cuentas.module.css';
 import { useUserContext } from '../../hooks/useUserContext';
 import { FormularioCuentas } from './FormularioCuentas';
 
@@ -15,25 +16,25 @@ export const ToggleForms = () => {
 	};
 	return (
 		<>
-			<div className="cuentas__toggle">
+			<div className={styles.cuentasToggle}>
 				{usuarioActual === 'Demo' ? (
 					<button
-						className={`cuentas__toggle-register ${esUsuarioNuevo ? 'active' : ''}`}
+						className={`${styles.cuentasToggleRegister} ${esUsuarioNuevo ? 'active' : ''}`}
 						onClick={() => setInicioDeSesionSeleccionado(false)}>
 						Registrarse
 					</button>
 				) : (
-					<button className="cuentas__toggle-logout" onClick={handleLogout}>
+					<button className={styles.CuentasToggleLogout} onClick={handleLogout}>
 						Cerrar sesión
 					</button>
 				)}
 				<button
-					className={`cuentas__toggle-login ${!esUsuarioNuevo ? 'active' : ''}`}
+					className={`${styles.cuentasToggleLogin} ${!esUsuarioNuevo ? 'active' : ''}`}
 					onClick={() => setInicioDeSesionSeleccionado(true)}>
 					Iniciar sesión
 				</button>
 			</div>
-			<div className="cuentas__form-container">
+			<div className={styles.cuentasFormContainer}>
 				<FormularioCuentas esUsuarioNuevo={esUsuarioNuevo} inicioDeSesionSeleccionado={inicioDeSesionSeleccionado} />
 			</div>
 		</>

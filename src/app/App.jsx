@@ -34,7 +34,7 @@ function App() {
 						<Route path="/transferencias" element={<Transferencias />} />
 						<Route path="/pagos" element={<Pagos />} />
 						<Route path="/solicitar-prestamo" element={<SolicitarPrestamo />} />
-						<Route path="/simulador-prestamo" element={<SimularPrestamo />} />
+						<Route path="/simular-prestamo" element={<SimularPrestamo />} />
 						<Route path="/conversor" element={<Conversor />} />
 						<Route path="/cuentas" element={<Cuentas />} />
 						<Route path="/terminos-y-condiciones" element={<Terminos />} />

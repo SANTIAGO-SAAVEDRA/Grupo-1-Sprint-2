@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import styles from './cuentas.module.css';
 import { Exito, Error } from '../../components';
 import { useUserContext } from '../../hooks/useUserContext';
 
@@ -87,7 +87,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 		<>
 			<h2>{esUsuarioNuevo && !inicioDeSesionSeleccionado ? 'Formulario de registro' : 'Formulario de inicio'}</h2>
 			<form id="form-acceso" method="post">
-				<div className="cuentas__form-group">
+				<div className={styles.cuentasFromGroup}>
 					<label htmlFor="nombre-usuario">Nombre de Usuario:</label>
 					<input
 						type="text"
@@ -100,7 +100,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 						minLength={3}
 					/>
 				</div>
-				<div className="cuentas__form-group">
+				<div className={styles.cuentasFromGroup}>
 					<label htmlFor="contraseña">Contraseña:</label>
 					<input
 						type="password"
@@ -114,7 +114,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 					/>
 				</div>
 				{esUsuarioNuevo && !inicioDeSesionSeleccionado ? (
-					<div className="cuentas__form-group" id="saldo-inicial-group">
+					<div className={styles.cuentasFromGroup} id="saldo-inicial-group">
 						<label htmlFor="saldo-inicial">Saldo Inicial:</label>
 						<input
 							type="number"
@@ -128,7 +128,7 @@ export const FormularioCuentas = ({ esUsuarioNuevo, inicioDeSesionSeleccionado }
 						/>
 					</div>
 				) : null}
-				<div className="cuentas__form-buttons">
+				<div className={styles.cuentasFormButtons}>
 					{esUsuarioNuevo && !inicioDeSesionSeleccionado ? (
 						<button type="button" onClick={registrarUsuario}>
 							Registrarse

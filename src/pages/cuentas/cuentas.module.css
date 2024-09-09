@@ -1,6 +1,4 @@
-.cuentas {
-}
-.cuentas__form-container {
+.cuentasFormContainer {
 	padding: 64px;
 	border: 1px solid #e0e0e0;
 	background-color: #ffffff;
@@ -9,15 +7,15 @@
 	border-bottom-right-radius: 10px;
 }
 
-.cuentas__toggle {
+.cuentasToggle {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-.cuentas__toggle button:not(.cuentas__toggle-logout) {
+.cuentasToggle button:not(.CuentasToggleLogout) {
 	background-color: #555;
 }
-.cuentas__toggle button {
+.cuentasToggle button {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border: none;
@@ -28,18 +26,18 @@
 	transition: background-color 0.3s;
 }
 
-.cuentas__toggle button.active {
+.cuentasToggle button:global(.active) {
 	background-color: #000;
 }
-.cuentas__toggle button:first-child {
+.cuentasToggle button:first-child {
 	border-top-right-radius: 0;
 }
 
-.cuentas__toggle button:last-child {
+.cuentasToggle button:last-child {
 	border-top-left-radius: 0;
 }
 
-.cuentas__toggle-logout {
+.CuentasToggleLogout {
 	background-color: #e03131;
 }
 .cuentas h2 {
@@ -48,19 +46,19 @@
 	margin-bottom: 20px;
 }
 
-.cuentas__form-group {
+.cuentasFromGroup {
 	margin-bottom: 20px;
 }
 
-.cuentas__form-group label {
+.cuentasFromGroup label {
 	display: block;
 	margin-bottom: 8px;
 	font-weight: bold;
 	color: #333333;
 }
 
-.cuentas__form-group input,
-.cuentas__form-group select {
+.cuentasFromGroup input,
+.cuentasFromGroup select {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #e0e0e0;
@@ -69,11 +67,11 @@
 	box-sizing: border-box;
 }
 
-.cuentas__form-group input::placeholder {
+.cuentasFromGroup input::placeholder {
 	color: #999999;
 }
 
-.cuentas__form-group button {
+.cuentasFromGroup button {
 	width: 100%;
 	background-color: #0283e9;
 	color: #ffffff;
@@ -85,15 +83,15 @@
 	transition: background-color 0.3s ease;
 }
 
-.cuentas__form-group button:hover {
+.cuentasFromGroup button:hover {
 	background-color: #0239d6; /* Azul oscuro para el hover del botón */
 }
 
-.cuentas__form-buttons {
+.cuentasFormButtons {
 	width: 100%;
 }
 
-.cuentas__form-buttons button {
+.cuentasFormButtons button {
 	width: 100%;
 	background-color: #0283e9; /* Azul medio para el botón */
 	color: #ffffff; /* Blanco para el texto del botón */
@@ -108,7 +106,7 @@
 }
 
 /* css mensaje error */
-.error {
+:global(.error) {
 	padding: 10px;
 	margin-top: 10px;
 	border-radius: 5px;
@@ -120,13 +118,13 @@
 }
 
 @media (max-width: 600px) {
-	.cuentas__form-container {
+	.cuentasFormContainer {
 		padding: 16px;
 	}
 
-	.cuentas__form-group input,
-	.cuentas__form-group select,
-	.cuentas__form-group button {
+	.cuentasFromGroup input,
+	.cuentasFromGroup select,
+	.cuentasFromGroup button {
 		font-size: 14px;
 	}
 }

@@ -5,13 +5,13 @@
 	background-color: #ffffff;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.loan-options {
+.loanOptions {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
 }
 
-.loan-card {
+.loanCard {
 	background-color: #ffffff;
 	border: 2px solid #01cdfb;
 	border-radius: 10px;
@@ -21,30 +21,30 @@
 	transition: transform 0.3s, border-color 0.3s;
 }
 
-.loan-card:hover {
+.loanCard:hover {
 	transform: translateY(-5px);
 	border-color: #0283e9;
 }
 
-.loan-card h3 {
+.loanCard h3 {
 	color: #0239d6;
 	margin-bottom: 15px;
 	border-bottom: 1px solid #f5f6fa;
 	padding-bottom: 10px;
 }
 
-.loan-card ul {
+.loanCard ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0 0 20px 0;
 }
 
-.loan-card li {
+.loanCard li {
 	margin-bottom: 10px;
 	color: #333333;
 }
 
-.loan-card button {
+.loanCard button {
 	background-color: #01cdfb;
 	border: none;
 	color: #ffffff;
@@ -57,7 +57,7 @@
 	width: 100%;
 }
 
-.loan-simulator {
+.loanSimulator {
 	background-color: #ffffff;
 	border: 2px solid #01cdfb;
 	border-radius: 10px;
@@ -67,21 +67,21 @@
 	margin: 40px auto;
 }
 
-.loan-simulator h2 {
+.loanSimulator h2 {
 	margin-bottom: 20px;
 }
 
-.form-group {
+.formGroup {
 	margin-bottom: 20px;
 }
 
-.form-group label {
+.formGroup label {
 	display: block;
 	margin-bottom: 5px;
 	color: #333333;
 }
 
-.form-group input {
+.formGroup input {
 	width: 100%;
 	padding: 10px;
 	border: 2px solid #f9f9f9;
@@ -90,18 +90,18 @@
 	transition: border-color 0.3s;
 }
 
-.form-group input:focus {
+.formGroup input:focus {
 	border-color: #01cdfb;
 }
 
-.form-buttons {
+.formButtons {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 }
 
-.request-loan,
-.calculate-loan {
+.requestLoan,
+.calculateLoan {
 	border: none;
 	padding: 12px 24px;
 	transition: background-color 0.3s;
@@ -110,7 +110,14 @@
 	cursor: pointer;
 }
 
-.request-loan {
+.calculateLoan {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+
+.requestLoan {
 	background-color: #0283e9;
 	color: #ffffff;
 	text-align: center;
@@ -119,11 +126,11 @@
 	width: 100%;
 }
 
-.request-loan:hover {
+.requestLoan:hover {
 	background-color: #0239d6;
 }
 
-#results {
+.results {
 	margin-top: 20px;
 	padding: 20px;
 	background-color: #fbfbfb;
@@ -132,12 +139,12 @@
 	text-align: center;
 }
 
-#results h3 {
+.results h3 {
 	color: #333333;
 	margin-bottom: 10px;
 }
 
-#results p {
+.results p {
 	font-size: 18px;
 	color: #0283e9;
 }
@@ -165,7 +172,7 @@
 }
 
 @media (max-width: 1024px) {
-	.loan-card {
+	.loanCard {
 		width: 45%;
 	}
 }
@@ -174,15 +181,15 @@
 	.prestamos {
 		padding: 48px;
 	}
-	.loan-options {
+	.loanOptions {
 		flex-direction: column;
 	}
 
-	.loan-card {
+	.loanCard {
 		width: 100%;
 	}
 
-	.loan-simulator {
+	.loanSimulator {
 		width: 100%;
 		margin: 20px auto;
 	}

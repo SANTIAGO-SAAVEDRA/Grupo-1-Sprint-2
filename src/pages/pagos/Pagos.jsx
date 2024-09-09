@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './pagos.css';
+import styles from './pagos.module.css';
 import { useUserContext } from '../../hooks/useUserContext';
 import { Exito, Error } from '../../components';
 
@@ -57,10 +57,10 @@ export const Pagos = () => {
 	};
 
 	return (
-		<section className="pagos">
+		<section className={styles.pagos}>
 			<h2>Pago de Factura</h2>
 			<form onSubmit={handleSubmit} action="/procesar-pago" method="post">
-				<div className="pagos__form-group">
+				<div className={styles.pagosFormGroup}>
 					<label htmlFor="numero-factura">Número de Factura:</label>
 					<input
 						type="text"
@@ -72,7 +72,7 @@ export const Pagos = () => {
 						required
 					/>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.pagosFormGroup}>
 					<label htmlFor="monto">Monto a Pagar:</label>
 					<input
 						value={monto}
@@ -88,7 +88,7 @@ export const Pagos = () => {
 						placeholder="Ingrese el monto"
 					/>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.pagosFormGroup}>
 					<label htmlFor="metodo-pago">Método de Pago:</label>
 					<select
 						value={metodoPago}
@@ -103,7 +103,7 @@ export const Pagos = () => {
 						<option value="paypal">PayPal</option>
 					</select>
 				</div>
-				<div className="pagos__form-group">
+				<div className={styles.pagosFormGroup}>
 					<button type="submit">Realizar Pago</button>
 				</div>
 			</form>

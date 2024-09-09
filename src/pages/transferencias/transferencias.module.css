@@ -10,19 +10,19 @@
 	margin-bottom: 20px;
 }
 
-.transferencias__form-group {
+.transferenciasFormGroup {
 	margin-bottom: 20px;
 }
 
-.transferencias__form-group label {
+.transferenciasFormGroup label {
 	display: block;
 	margin-bottom: 8px;
 	font-weight: bold;
 	color: #333333;
 }
 
-.transferencias__form-group input,
-.transferencias__form-group select {
+.transferenciasFormGroup input,
+.transferenciasFormGroup select {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #e0e0e0;
@@ -31,11 +31,11 @@
 	box-sizing: border-box;
 }
 
-.transferencias__form-group input::placeholder {
+.transferenciasFormGroup input::placeholder {
 	color: #999999;
 }
 
-.transferencias__form-group button {
+.transferenciasFormGroup button {
 	width: 100%;
 	background-color: #0283e9;
 	color: #ffffff;
@@ -47,7 +47,7 @@
 	transition: background-color 0.3s ease;
 }
 
-.transferencias__form-group button:hover {
+.transferenciasFormGroup button:hover {
 	background-color: #0239d6; /* Azul oscuro para el hover del botón */
 }
 
@@ -70,7 +70,7 @@
 }
 
 /*css al mensaje de transferencias */
-.error {
+:global(.error) {
 	padding: 10px;
 	margin-top: 10px;
 	border-radius: 5px;
@@ -81,7 +81,7 @@
 	color: #fff;
 }
 
-.exito {
+:global(.exito) {
 	padding: 10px;
 	margin-top: 10px;
 	border-radius: 5px;
@@ -103,9 +103,9 @@
 		padding: 16px;
 	}
 
-	.transferencias__form-group input,
-	.transferencias__form-group select,
-	.transferencias__form-group button {
+	.transferenciasFormGroup input,
+	.transferenciasFormGroup select,
+	.transferenciasFormGroup button {
 		font-size: 14px;
 	}
 }
